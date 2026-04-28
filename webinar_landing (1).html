@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Detox Webinar — The Real Gut Doctor</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#30609c;--blue-dark:#1e4a7a;--blue-light:#e8f0f8;
+  --sage:#9ca890;--sage-dark:#6b8063;--sage-light:#c2cebe;--sage-bg:#eef2ee;--sage-bg2:#e4ebe4;
+  --gold:#c8960a;--gold-light:#e8b020;
+  --dark:#5a7258;--dark2:#6b8063;--dark3:#7a9070;
+  --white:#fff;--text:#e8ede8;--muted:rgba(255,255,255,0.72);
+  --font-head:'Montserrat',sans-serif;
+  --font-body:'Open Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--white);color:#1a2e1a;overflow-x:hidden;}
+
+/* ── STICKY CTA BAR ── */
+.sticky-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:100;
+  background:#5a7258;border-top:1px solid rgba(156,168,144,0.2);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 40px;
+}
+.sticky-bar-left{display:flex;flex-direction:column;}
+.sticky-bar-left strong{font-family:var(--font-head);font-size:13px;font-weight:800;color:var(--white);}
+.sticky-bar-left span{font-size:11px;color:var(--gold-light);font-weight:600;}
+.btn-gold{
+  display:inline-block;background:var(--gold);color:var(--dark);
+  font-family:var(--font-head);font-weight:800;font-size:13px;
+  letter-spacing:0.04em;text-transform:uppercase;
+  padding:13px 32px;border-radius:6px;border:none;cursor:pointer;
+  text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-green{
+  display:inline-block;background:#2ecc71;color:#fff;
+  font-family:var(--font-head);font-weight:800;font-size:14px;
+  letter-spacing:0.03em;padding:16px 40px;border-radius:6px;
+  border:none;cursor:pointer;text-decoration:none;transition:all 0.2s;
+}
+.btn-green:hover{background:#27ae60;transform:translateY(-2px);box-shadow:0 8px 30px rgba(46,204,113,0.35);}
+
+/* ── HERO (LIGHT SAGE) ── */
+.hero{
+  background:#eef2ee;
+  padding:0 0 60px;position:relative;overflow:hidden;
+}
+
+.hero-nav{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 48px;
+  background:var(--sage-dark);
+  border-bottom:1px solid rgba(107,128,99,0.2);
+}
+.hero-nav .logo{height:46px;object-fit:contain;filter:brightness(0) invert(1);}
+.hero-nav a{font-size:12px;color:rgba(255,255,255,0.75);text-decoration:none;}
+.hero-nav a:hover{color:#fff;}
+
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1060px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 380px;
+  gap:40px;align-items:center;
+  padding:52px 48px 0;
+}
+.hero-badge{
+  display:inline-block;
+  border:1.5px solid var(--sage-dark);border-radius:4px;
+  padding:6px 16px;font-size:10px;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--sage-dark);background:rgba(107,128,99,0.1);
+  margin-bottom:20px;
+}
+.hero h1{
+  font-family:var(--font-head);font-size:clamp(32px,4vw,52px);
+  font-weight:900;color:#1a2e1a;line-height:1.1;margin-bottom:18px;
+}
+.hero h1 .accent{color:var(--gold);}
+.hero-sub{font-size:14px;color:#3d5040;line-height:1.8;max-width:500px;font-weight:300;}
+
+.hero-photo{text-align:center;position:relative;}
+.hero-photo-card{
+  background:radial-gradient(ellipse at 50% 85%, #c8d9c4 0%, #eef2ee 45%, #f5f8f5 100%);
+  border-radius:16px;
+  border:1px solid rgba(107,128,99,0.2);
+  overflow:hidden;
+  box-shadow:0 8px 40px rgba(107,128,99,0.18), 0 2px 8px rgba(107,128,99,0.08);
+}
+.hero-photo-card img{
+  width:100%;display:block;
+  mix-blend-mode:multiply;
+}
+.hero-photo-caption{
+  padding:14px 16px;
+  border-top:1px solid rgba(107,128,99,0.15);
+  background:#fff;
+  font-family:var(--font-head);font-size:14px;font-weight:700;
+  color:#1a2e1a;
+}
+.hero-photo-caption span{display:block;font-size:11px;color:#7a9478;font-weight:400;font-family:var(--font-body);}
+
+/* ── FORM BOX ── */
+.form-section{
+  background:linear-gradient(160deg, #5a7258 0%, #6b8063 100%);
+  padding:0 48px 0;
+}
+.form-box{
+  max-width:660px;margin:0 auto;
+  background:#fff;
+  border:1px solid rgba(107,128,99,0.2);
+  border-radius:14px;padding:36px 40px;
+  box-shadow:0 8px 40px rgba(107,128,99,0.15);
+  position:relative;z-index:2;
+  transform:translateY(-30px);
+}
+.form-date{
+  text-align:center;font-size:10px;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--sage-dark);margin-bottom:10px;
+}
+.form-title{
+  font-family:var(--font-head);font-size:clamp(18px,2.5vw,26px);
+  font-weight:800;color:#1a2e1a;text-align:center;margin-bottom:20px;
+}
+
+/* Countdown */
+.countdown{display:flex;justify-content:center;gap:16px;margin-bottom:28px;}
+.cd-box{text-align:center;}
+.cd-num{
+  display:block;
+  font-family:var(--font-head);font-size:38px;font-weight:900;
+  color:#1a2e1a;line-height:1;
+  background:#f0f5f0;border:1px solid rgba(107,128,99,0.2);
+  border-radius:8px;padding:8px 16px;min-width:72px;
+}
+.cd-label{display:block;font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#7a9478;margin-top:6px;}
+
+/* Form fields */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.form-field{display:flex;flex-direction:column;}
+.form-field input{
+  background:#f7faf7;border:1px solid rgba(107,128,99,0.25);
+  border-radius:6px;padding:13px 16px;font-size:13px;
+  color:#1a2e1a;font-family:var(--font-body);
+  transition:border-color 0.2s;
+}
+.form-field input::placeholder{color:#9ab09a;}
+.form-field input:focus{outline:none;border-color:var(--sage-dark);}
+.form-field.full{grid-column:1/-1;}
+.form-consent{
+  display:flex;align-items:flex-start;gap:10px;
+  background:#f0f5f0;border:1px solid rgba(107,128,99,0.2);
+  border-radius:6px;padding:12px 14px;margin:12px 0 20px;
+}
+.form-consent input[type=checkbox]{margin-top:3px;accent-color:var(--sage-dark);flex-shrink:0;}
+.form-consent label{font-size:11px;color:#5a7460;line-height:1.6;}
+.form-consent a{color:var(--sage-dark);}
+.form-submit{width:100%;padding:16px;font-size:14px;text-transform:uppercase;letter-spacing:0.05em;border-radius:6px;}
+.form-tos{text-align:center;margin-top:12px;font-size:11px;color:#7a9478;}
+.form-tos a{color:var(--sage-dark);}
+
+/* ── BENEFITS (DARK 3 COL) ── */
+.benefits{background:var(--sage-bg);padding:20px 48px 60px;}
+.benefits-grid{
+  max-width:1060px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.benefit-card{
+  background:var(--white);
+  border:1px solid rgba(107,128,99,0.2);
+  border-radius:12px;padding:28px 24px;
+}
+.benefit-icon{font-size:22px;margin-bottom:14px;}
+.benefit-num{
+  font-family:var(--font-head);font-size:28px;font-weight:900;
+  color:var(--gold-light);margin-bottom:8px;
+}
+.benefit-title{font-family:var(--font-head);font-size:15px;font-weight:700;color:#1a2e1a;margin-bottom:8px;}
+.benefit-body{font-size:13px;color:#5a7460;line-height:1.7;font-weight:300;}
+
+/* ── WHAT YOU'LL LEARN (WHITE) ── */
+.learn{background:var(--white);padding:80px 48px;}
+.section-label{
+  text-align:center;font-size:10px;font-weight:700;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--sage-dark);margin-bottom:10px;
+}
+.section-title{
+  font-family:var(--font-head);font-size:clamp(26px,3.5vw,42px);
+  font-weight:900;color:#1a2e1a;text-align:center;
+  line-height:1.15;margin-bottom:10px;
+}
+.section-title .accent{color:var(--gold);}
+.section-sub{text-align:center;font-size:14px;color:#5a7460;max-width:580px;margin:0 auto 52px;font-weight:300;}
+.learn-inner{max-width:960px;margin:0 auto;}
+.learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 48px;}
+.learn-item{display:flex;gap:14px;align-items:flex-start;}
+.learn-check{
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(107,128,99,0.15);border:1.5px solid var(--sage);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;color:var(--sage-dark);font-size:11px;font-weight:900;
+}
+.learn-title{font-size:14px;font-weight:700;color:#1a2e1a;margin-bottom:5px;}
+.learn-body{font-size:13px;color:#5a7460;line-height:1.7;font-weight:300;}
+
+/* ── IMPORTANCE (DARK) ── */
+.importance{background:var(--dark3);padding:80px 48px;}
+.importance-inner{max-width:960px;margin:0 auto;}
+.importance-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:52px;}
+.importance-img{border-radius:14px;overflow:hidden;border:1px solid rgba(156,168,144,0.15);}
+.importance-img img{width:100%;display:block;object-fit:cover;height:420px;}
+.importance-body p{font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:16px;font-weight:300;}
+.importance-body strong{color:var(--white);font-weight:700;}
+.importance-body .highlight{color:var(--gold-light);}
+
+/* Pain points */
+.pain-list{list-style:none;margin:16px 0;display:flex;flex-direction:column;gap:10px;}
+.pain-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:14px;color:var(--muted);line-height:1.7;
+  font-weight:300;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:10px;padding:14px 18px;
+}
+.pain-list li::before{
+  content:'✓';
+  color:#e8b020;
+  flex-shrink:0;
+  font-size:18px;
+  font-weight:900;
+  line-height:1.6;
+}
+.pain-list li strong{color:var(--white);}
+
+/* ── MEET DR MARK ── */
+.meet{background:var(--dark3);padding:20px 48px 80px;}
+.meet-inner{
+  max-width:960px;margin:0 auto;
+  display:grid;grid-template-columns:360px 1fr;gap:52px;align-items:start;
+}
+.meet-photo{
+  border-radius:14px;overflow:hidden;
+  border:1px solid rgba(156,168,144,0.25);
+  background:transparent;
+}
+.meet-photo img{
+  width:100%;display:block;
+  -webkit-mask-image:linear-gradient(to bottom, black 72%, transparent 100%);
+  mask-image:linear-gradient(to bottom, black 72%, transparent 100%);
+}
+.meet-name{font-family:var(--font-head);font-size:32px;font-weight:900;color:var(--white);margin-bottom:6px;}
+.meet-creds{
+  display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;
+}
+.cred-tag{
+  font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:5px 12px;border-radius:20px;
+  border:1px solid rgba(156,168,144,0.3);color:var(--sage-light);
+}
+.meet-body p{font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:14px;font-weight:300;}
+.meet-body strong{color:var(--white);}
+.meet-stat{
+  display:inline-block;font-family:var(--font-head);font-size:13px;font-weight:700;
+  color:var(--gold-light);border-bottom:1px solid var(--gold);padding-bottom:2px;margin-bottom:24px;
+}
+
+/* ── 3 WAYS (WHITE) ── */
+.ways{background:var(--white);padding:80px 48px;}
+.ways-grid{
+  max-width:960px;margin:40px auto 0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.way-card{
+  border:1px solid rgba(107,128,99,0.2);border-radius:12px;padding:28px 24px;
+  position:relative;overflow:hidden;
+}
+.way-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--sage-dark),var(--blue));
+}
+.way-icon{font-size:22px;margin-bottom:16px;}
+.way-title{font-family:var(--font-head);font-size:16px;font-weight:800;color:#1a2e1a;margin-bottom:10px;}
+.way-body{font-size:13px;color:#5a7460;line-height:1.7;font-weight:300;}
+
+/* ── OLD VS NEW (DARK) ── */
+.comparison{background:var(--dark2);padding:80px 48px;}
+.comparison-inner{max-width:860px;margin:0 auto;}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;}
+.comp-card{border-radius:12px;padding:30px 28px;}
+.comp-old{background:rgba(255,255,255,0.04);border:1px solid rgba(200,80,80,0.2);}
+.comp-new{background:rgba(107,128,99,0.08);border:1px solid rgba(156,168,144,0.3);}
+.comp-label{
+  font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;
+  margin-bottom:20px;display:block;
+}
+.comp-old .comp-label{color:#e06060;}
+.comp-new .comp-label{color:var(--sage-light);}
+.comp-list{list-style:none;}
+.comp-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:13px;line-height:1.6;margin-bottom:10px;font-weight:300;
+}
+.comp-old .comp-list li{color:rgba(255,255,255,0.55);}
+.comp-old .comp-list li::before{content:'✗';color:#e06060;flex-shrink:0;font-weight:700;}
+.comp-new .comp-list li{color:var(--muted);}
+.comp-new .comp-list li::before{content:'✓';color:var(--sage);flex-shrink:0;font-weight:700;}
+.comp-new .comp-list li strong{color:var(--white);}
+.comp-quote{
+  margin-top:24px;font-style:italic;font-size:13px;
+  color:var(--gold-light);line-height:1.7;text-align:center;
+  padding-top:20px;border-top:1px solid rgba(156,168,144,0.15);
+}
+
+/* ── WHO THIS IS FOR (WHITE) ── */
+.who{background:var(--white);padding:80px 48px;}
+.audience-grid{
+  max-width:780px;margin:36px auto 0;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+}
+.audience-tag{
+  text-align:center;border:1px solid rgba(107,128,99,0.25);
+  border-radius:6px;padding:12px 10px;
+  font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  color:#3d5040;
+}
+
+/* ── FAQ ── */
+.faq{background:var(--white);padding:0 48px 80px;}
+.faq-inner{max-width:780px;margin:0 auto;}
+.faq-item{border-bottom:1px solid rgba(107,128,99,0.15);}
+.faq-q{
+  width:100%;background:none;border:none;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 0;cursor:pointer;text-align:left;
+  font-size:14px;font-weight:600;color:#1a2e1a;
+  font-family:var(--font-body);
+}
+.faq-q:hover{color:var(--blue);}
+.faq-q .arrow{color:var(--sage-dark);font-size:18px;transition:transform 0.3s;flex-shrink:0;}
+.faq-a{
+  font-size:13px;color:#5a7460;line-height:1.8;
+  padding:0 0 16px;display:none;font-weight:300;
+}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .arrow{transform:rotate(180deg);}
+
+/* ── FOOTER ── */
+.footer{background:var(--dark);padding:40px 48px;text-align:center;}
+.footer-links{display:flex;justify-content:center;gap:28px;margin-bottom:16px;}
+.footer-links a{font-size:12px;color:var(--muted);text-decoration:none;}
+.footer-links a:hover{color:var(--sage-light);}
+.footer-copy{font-size:11px;color:rgba(156,168,144,0.4);margin-bottom:20px;font-weight:700;letter-spacing:0.06em;}
+.footer-legal{font-size:11px;color:rgba(156,168,144,0.3);line-height:1.8;max-width:860px;margin:0 auto;}
+
+/* ── CTA SECTIONS ── */
+.cta-section{text-align:center;padding:48px 24px;}
+.cta-section.dark{background:var(--dark);}
+.cta-section.light{background:var(--white);}
+.cta-title{font-family:var(--font-head);font-size:clamp(20px,2.5vw,30px);font-weight:800;margin-bottom:20px;}
+.cta-section.dark .cta-title{color:var(--white);}
+.cta-section.light .cta-title{color:#1a2e1a;}
+.cta-guarantee{font-size:12px;color:var(--muted);margin-top:12px;}
+.cta-section.light .cta-guarantee{color:#7a9478;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero-inner,.meet-inner,.importance-grid,.comparison-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .benefits-grid,.ways-grid,.learn-grid,.audience-grid{grid-template-columns:1fr;}
+  .hero-nav{padding:14px 20px;}
+  .hero-inner,.form-section,.benefits,.learn,.importance,.meet,.ways,.comparison,.who,.faq,.footer{padding-left:20px;padding-right:20px;}
+  .sticky-bar{padding:10px 16px;}
+  .hero-photo{order:-1;}
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <div class="sticky-bar-left">
+    <strong>Weekly Detox Webinar</strong>
+    <span>Live Every Week · With Dr. Jeffrey C.G. Mark, M.D.</span>
+  </div>
+  <a href="#register" class="btn-gold">Reserve Your Spot Now</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <nav class="hero-nav">
+    <img class="logo" src="logo.png" alt="The Real Gut Doctor">
+    <a href="mailto:support@therealgutdoctor.com">✉ support@therealgutdoctor.com</a>
+  </nav>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">Join Dr. Jeffrey C.G. Mark, M.D. Live</div>
+      <h1>The Root-Cause Approach To <span class="accent">Detox Your Gut,</span> Reclaim Your Energy, And Finally Get <span class="accent">Real Answers</span> About Your Health</h1>
+      <p class="hero-sub">The gut health revolution is here. Spots are limited. What you'll learn in 90 minutes will change how you think about your health forever. This is the weekly webinar people will talk about for years. Don't be the one who missed it.</p>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-photo-card">
+        <img src="dr-mark-new.png" alt="Dr. Jeffrey C.G. Mark, M.D.">
+        <div class="hero-photo-caption">
+          Dr. Jeffrey C.G. Mark, M.D.
+          <span>Founder · The Real Gut Doctor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REGISTRATION FORM ── -->
+<section class="form-section" id="register">
+  <div class="form-box">
+    <div class="form-date">Every Week · Live · Root-Cause Medicine</div>
+    <div class="form-title">Register and Save Your Spot For The<br>Weekly Detox Webinar With Dr. Mark</div>
+    <div class="countdown">
+      <div class="cd-box"><span class="cd-num" id="cd-days">00</span><span class="cd-label">Days</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Hours</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Minutes</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Seconds</span></div>
+    </div>
+    <form onsubmit="return false;">
+      <div class="form-row">
+        <div class="form-field"><input type="text" placeholder="Your First Name*"></div>
+        <div class="form-field"><input type="text" placeholder="Your Last Name*"></div>
+        <div class="form-field full"><input type="email" placeholder="Your Best Email Address*"></div>
+        <div class="form-field full"><input type="tel" placeholder="Phone Number*"></div>
+      </div>
+      <div class="form-consent">
+        <input type="checkbox" id="consent">
+        <label for="consent">I confirm I want to receive content from The Real Gut Doctor using any contact information I provide and agree to the <a href="#">Terms and Conditions</a>. We help spam as much as you do. This will allow us to remind you of the webinar, register you with Zoom, and follow up with you for the recordings.</label>
+      </div>
+      <a href="#" class="btn-gold form-submit" style="display:block;text-align:center;">Register For Webinar</a>
+      <div class="form-tos"><a href="#">Terms of Service</a></div>
+    </form>
+  </div>
+</section>
+
+<!-- ── BENEFITS ── -->
+<section class="benefits">
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon">🧬</div>
+      <div class="benefit-title">Get Root-Cause Answers</div>
+      <p class="benefit-body">In this webinar you will see exactly how Dr. Mark finds the root cause of gut issues that other physicians miss. Stop treating symptoms — start healing.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">⚡</div>
+      <div class="benefit-title">Reclaim Your Energy</div>
+      <p class="benefit-body">This is not a theory. This is not a maybe. The patients who implement what Dr. Mark teaches are getting their energy, clarity, and quality of life back.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🏆</div>
+      <div class="benefit-title">Get Ahead of 99% of Patients</div>
+      <p class="benefit-body">Most people are still confused about gut health. They are overwhelmed, stuck, or just ignoring it entirely. After 90 minutes with Dr. Mark, you will have a complete game plan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT YOU'LL LEARN ── -->
+<section class="learn">
+  <div class="learn-inner">
+    <div class="section-label">What You Will Learn</div>
+    <h2 class="section-title">What You Will Learn In Just 90 Minutes Will<br><span class="accent">Transform How You Think About Your Health Forever</span></h2>
+    <p class="section-sub">We guarantee you will leave with a complete root-cause roadmap simply by attending this one webinar.</p>
+    <div class="learn-grid">
+      <div class="learn-item">
+        <div class="learn-check">✓</div>
+        <div><div class="learn-title">The Secret To Having Your Gut Work For You</div><p class="learn-body">Imagine understanding exactly what is happening inside your body and walking away with a real plan. Dr. Mark will show you the root-cause framework that changes everything, live.</p></div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-check">✓</div>
+        <div><div class="learn-title">The 7 Levels of Gut Health (And Why Most People Are Stuck At Level 0)</div><p class="learn-body">There are 7 levels to true gut healing. Most patients don't even know Level 1 exists. This webinar shows you all 7 and how to move up in record time.</p></div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-check">✓</div>
+        <div><div class="learn-title">How To Learn Anything About Your Body In A Weekend</div><p class="learn-body">Dr. Mark will show you how to read your own labs, understand your symptoms, and become an expert in your own health — in minutes, not months.</p></div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-check">✓</div>
+        <div><div class="learn-title">How To Save 10 to 15 Hours Per Week Feeling Sick</div><p class="learn-body">The exact protocols and systems that handle your fatigue, bloating, brain fog, and symptoms so you can focus on what actually matters in your life.</p></div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-check">✓</div>
+        <div><div class="learn-title">The Secret To Making Your Health Plan Sound Exactly Like You</div><p class="learn-body">Stop getting generic protocols that feel designed for someone else. Dr. Mark will reveal the exact method that creates a personalized plan — every single time.</p></div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-check">✓</div>
+        <div><div class="learn-title">The Detox Protocol Stack That Is Quietly Replacing Outdated Medicine</div><p class="learn-body">There is a system of functional, regenerative, and metabolic tools working together that can do the job of an entire team of specialists. Dr. Mark will show you the whole thing live.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── IMPORTANCE ── -->
+<section class="importance">
+  <div class="importance-inner">
+    <div class="section-label" style="color:var(--sage-light);">Why This Is So Important</div>
+    <h2 class="section-title" style="color:var(--white);text-align:center;">Enough Suffering. Enough Being Told<br>"Everything Is Normal." It Is Time To Step<br>Into Real Medicine Like A Boss.</h2>
+    <div class="importance-grid">
+      <div class="importance-img">
+        <img src="https://assets.cdn.filesafe.space/25VM2wXxWaL9jLgWtaBN/media/69e10b3ca2661c2e8f92d9f2.png" alt="Webinar">
+      </div>
+      <div class="importance-body">
+        <p><strong>Let me be real with you for a second.</strong></p>
+        <p>The gut health crisis is here. <strong>It isn't coming. It's here.</strong> It's already reshaping how people feel, how they perform, and how the most productive people on the planet are getting their edge.</p>
+        <p>And it's moving so fast that what was cutting edge six months ago is already outdated. The research is evolving weekly. New breakthroughs are happening daily. And the gap between the people who are working with their body and the people who aren't is getting <strong>wider every single day.</strong></p>
+        <p>Here's what I've seen firsthand after spending thousands of hours with patients: the people who take action right now are the ones who will dominate. <span class="highlight">They'll produce more energy in a day than most people produce in a month.</span> They'll automate the healing that used to eat up their entire week.</p>
+        <p><strong>You're stuck because:</strong></p>
+        <ul class="pain-list">
+          <li>Your gut issues are quietly destroying your energy and focus every single day, and you can feel it adding up.</li>
+          <li>You know something is off with your health but no one has ever given you a real answer that actually makes sense.</li>
+          <li>Fatigue, bloating, and brain fog are stealing your best hours and making it impossible to show up as your best self.</li>
+          <li>You've watched everyone around you seem to thrive while you're still stuck dealing with the same symptoms week after week.</li>
+          <li>You've tried the diets, the supplements, and all the advice online and nothing has ever worked long-term.</li>
+        </ul>
+        <p>If any of that hit close to home, I want you to know something. <strong>You're not behind.</strong> You're not too late. You just need the right system — and the right doctor to show you, step by step, exactly what to do.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section dark" style="background:#1a2e1a;">
+  <div class="cta-title">Register For The Weekly Detox Webinar Now!</div>
+  <a href="#register" class="btn-green">Yes! I'm In — Please Save My Spot</a>
+  <div class="cta-guarantee" style="color:var(--muted);">We Guarantee You Will Leave With At Least One Real Answer About Your Health</div>
+</div>
+
+<!-- ── MEET DR MARK ── -->
+<section class="meet">
+  <div style="max-width:960px;margin:0 auto 48px;text-align:center;">
+    <div class="section-label" style="color:var(--sage);">Meet Your Doctor</div>
+    <h2 class="section-title" style="color:var(--white);">Dr. Jeffrey C.G. Mark, M.D.</h2>
+  </div>
+  <div class="meet-inner">
+    <div class="meet-photo">
+      <img src="dr-mark-new.png" alt="Dr. Jeffrey C.G. Mark, M.D.">
+    </div>
+    <div>
+      <div class="meet-name">Dr. Jeffrey C.G. Mark, M.D.</div>
+      <div class="meet-stat">Founder, The Real Gut Doctor · 5x Board Certified</div>
+      <div class="meet-creds">
+        <span class="cred-tag">Functional Medicine</span>
+        <span class="cred-tag">Regenerative Medicine</span>
+        <span class="cred-tag">Metabolic Medicine</span>
+        <span class="cred-tag">Longevity Medicine</span>
+        <span class="cred-tag">San Ramon · Turlock · Kailua Kona</span>
+      </div>
+      <div class="meet-body">
+        <p>This webinar isn't taught by someone who read about gut health on the internet. It's taught by a physician who is in the trenches with this science every single day, healing real patients and getting real results.</p>
+        <p>Dr. Mark is one of the most respected functional medicine physicians in the country. He's spent his entire career asking the question most physicians skip: <strong>why is this happening in the first place?</strong> His root-cause approach combines the best of functional, regenerative, metabolic, and longevity medicine into one unified framework.</p>
+        <p>Dr. Mark teaches you the <strong>why</strong> — the thinking behind every symptom, every lab, every protocol. And then he shows you the <strong>how</strong> — the tools, the live demonstrations, the step-by-step implementation. You get both sides. The thinking and the doing.</p>
+        <p>By the end of 90 minutes, you'll have a complete system you can start using immediately. <strong>This is the real deal.</strong></p>
+      </div>
+      <a href="#register" class="btn-gold">Reserve Your Spot Now!</a>
+      <div style="margin-top:10px;font-size:12px;color:var(--muted);">We Guarantee You Will Leave With At Least $1,000 In Value</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 3 WAYS ── -->
+<section class="ways">
+  <div style="max-width:960px;margin:0 auto;">
+    <div class="section-label">The 3 Best Ways</div>
+    <h2 class="section-title">3 Ways To Make Sure You Don't<br>Get Left Behind</h2>
+    <p class="section-sub">Your gut health is moving fast. The people who take action right now are the ones who will be years ahead of everyone else. Here is exactly how to make sure you are one of them.</p>
+  </div>
+  <div class="ways-grid">
+    <div class="way-card">
+      <div class="way-icon">📅</div>
+      <div class="way-title">Register For The Webinar Right Now</div>
+      <p class="way-body">This is your starting point. In just 90 minutes Dr. Mark is going to walk you through the exact root-cause secrets, tools, and strategies that are changing how the smartest patients are healing their bodies. You will walk away with a complete system you can start using the same day. But you have to be in the room. Register now and lock in your spot before they are gone.</p>
+    </div>
+    <div class="way-card">
+      <div class="way-icon">👥</div>
+      <div class="way-title">Join The Private Community</div>
+      <p class="way-body">On the next page after you register, you will be invited to join an exclusive patient community unlike anything you have ever seen before. This is not some random Facebook group. This is a place where serious patients share what is working right now with Dr. Mark, get help when they are stuck, and stay ahead of the curve together. It is yours free, just for signing up.</p>
+    </div>
+    <div class="way-card">
+      <div class="way-icon">🚀</div>
+      <div class="way-title">Take Action On What You Learn</div>
+      <p class="way-body">Here is the truth. Watching the webinar alone will blow your mind. But the people who get real results are the ones who actually implement. Take what Dr. Mark teaches you and put it to work in your health that same week. The protocols are proven. The system works. The only thing missing is you taking that first step.</p>
+    </div>
+  </div>
+  <div class="cta-section light" style="padding:40px 0 0;">
+    <div class="cta-title">Your Spot Is Waiting. Register Now.</div>
+    <a href="#register" class="btn-gold" style="font-size:15px;padding:16px 44px;">Reserve Your Spot Today!</a>
+    <div class="cta-guarantee">We guarantee you will walk away with a complete health protocol you can implement immediately.</div>
+  </div>
+</section>
+
+<!-- ── OLD VS NEW ── -->
+<section class="comparison">
+  <div class="comparison-inner">
+    <div class="section-label" style="color:var(--sage);text-align:center;">The New Way vs Old Way</div>
+    <h2 class="section-title" style="color:var(--white);text-align:center;">Stop Doing Things The Hard Way.<br>There Is A Better Way And Dr. Mark Will<br>Show You Exactly How It Works.</h2>
+    <div class="comparison-grid">
+      <div class="comp-card comp-old">
+        <span class="comp-label">The Old Way (Without Dr. Mark)</span>
+        <ul class="comp-list">
+          <li>You spend weeks trying to figure out gut health on your own</li>
+          <li>You are overwhelmed by hundreds of supplements with no idea which ones matter</li>
+          <li>You are not sure where to start or what actually moves the needle</li>
+          <li>You create health goals manually, taking hours to research per day</li>
+          <li>You are staring at blank walls while your symptoms continue daily</li>
+          <li>You are doing all the research, writing, and busywork yourself</li>
+          <li>You are watching other patients outpace you with functional medicine systems</li>
+          <li>You are working 50+ hours a week on your health and still falling behind</li>
+        </ul>
+      </div>
+      <div class="comp-card comp-new">
+        <span class="comp-label">What Becomes Possible After This Webinar</span>
+        <ul class="comp-list">
+          <li>You have a clear, proven system that shows you exactly what to do, in what order, so you never feel lost or overwhelmed again</li>
+          <li>You wake up knowing that your energy, your digestion, and your wellbeing are being handled for you while you focus on what actually matters</li>
+          <li>You hand off real work to your body and watch it execute healing autonomously, without you lifting a finger</li>
+          <li>Everything Dr. Mark creates for you sounds exactly like your own story. <strong>Your voice. Every time.</strong></li>
+          <li>You go from staring at a blank screen to having a full month of health ready to implement before your morning coffee gets cold</li>
+          <li>You become an expert on your own health in minutes instead of months</li>
+          <li>Your entire healing operation runs like a machine, connected and working around the clock</li>
+          <li>You get back 10 to 15 hours every single week and finally have the time to grow, connect, and just breathe</li>
+        </ul>
+        <div class="comp-quote">"This is what happens when you stop guessing and start using the right system. This is the webinar that shows you how."</div>
+      </div>
+    </div>
+    <div class="cta-section dark" style="background:#1a2e1a;" style="padding:40px 0 0;">
+      <a href="#register" class="btn-green" style="font-size:15px;padding:16px 44px;">Yes! Please Reserve My Free Spot Today!</a>
+      <div class="cta-guarantee">We Guarantee You Will Leave Saving At Least 10 Hours A Week!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO THIS IS FOR ── -->
+<section class="who">
+  <div style="max-width:780px;margin:0 auto;text-align:center;">
+    <div class="section-label">Who This Is For</div>
+    <h2 class="section-title">Perfect For Anyone Who Wants To<br>Heal Smarter, Save Time, And Gain<br>An Unstoppable Edge On Their Health</h2>
+  </div>
+  <div class="audience-grid">
+    <div class="audience-tag">Chronic Fatigue</div>
+    <div class="audience-tag">Digestive Issues</div>
+    <div class="audience-tag">Brain Fog</div>
+    <div class="audience-tag">Weight Problems</div>
+    <div class="audience-tag">Autoimmune</div>
+    <div class="audience-tag">Hormone Imbalance</div>
+    <div class="audience-tag">Inflammation</div>
+    <div class="audience-tag">Healthy Aging</div>
+    <div class="audience-tag">Entrepreneurs</div>
+    <div class="audience-tag">High Performers</div>
+    <div class="audience-tag">Health Coaches</div>
+    <div class="audience-tag">Wellness Seekers</div>
+  </div>
+  <div style="text-align:center;margin-top:28px;font-size:14px;color:#3d5040;max-width:620px;margin-left:auto;margin-right:auto;">
+    Yes, This Works For You Too! If you have a body and you want it to work better, this webinar will change how you approach your health starting day one.
+  </div>
+  <div class="cta-section light" style="padding:36px 0 0;">
+    <a href="#register" class="btn-gold" style="font-size:15px;padding:16px 44px;">Get Instant Access Here</a>
+    <div class="cta-guarantee">30 Day Money Back Guarantee</div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="section-label" style="text-align:center;">Still Got Questions? We Got You!</div>
+    <h2 class="section-title" style="margin-bottom:36px;">Frequently Asked Questions</h2>
+    <div class="faq-item open">
+      <button class="faq-q" onclick="toggleFaq(this)">What exactly do I get when I register? <span class="arrow">▾</span></button>
+      <div class="faq-a">You get instant access to the live 90-minute weekly webinar with Dr. Jeffrey C.G. Mark, M.D. You will also receive a Zoom link via email, access to our private patient community, and any recordings or follow-up resources Dr. Mark shares after the session.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Who is this webinar for? <span class="arrow">▾</span></button>
+      <div class="faq-a">This webinar is for anyone who is struggling with gut health, chronic fatigue, brain fog, digestive issues, inflammation, or any condition they feel has never been fully explained. If you use a body and you want it to work better, this is for you.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do I need to be tech savvy to get value from this? <span class="arrow">▾</span></button>
+      <div class="faq-a">Not at all. The webinar is live via Zoom. You just click a link and show up. Dr. Mark walks you through everything step by step. No prior medical knowledge required.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How fast can I start using what I learn? <span class="arrow">▾</span></button>
+      <div class="faq-a">Immediately. Dr. Mark is known for giving patients things they can implement the same day. By the time the 90 minutes is over, you will have a complete root-cause roadmap ready to go.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What kind of medical approach will Dr. Mark be using? <span class="arrow">▾</span></button>
+      <div class="faq-a">Dr. Mark combines functional medicine, regenerative medicine, metabolic medicine, and longevity medicine into one unified framework. Everything is evidence-based, root-cause focused, and designed for real patients getting real results.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Will there be a replay if I cannot attend live? <span class="arrow">▾</span></button>
+      <div class="faq-a">We strongly encourage you to attend live because Dr. Mark does live Q&A and real-time demonstrations that you simply cannot get from a recording. That said, registered attendees may receive replay access — check your confirmation email for details.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Is this really free? What is the catch? <span class="arrow">▾</span></button>
+      <div class="faq-a">Yes, it is completely free to register and attend. Dr. Mark believes everyone deserves access to root-cause medicine. There is no catch. You will learn real, actionable information that most patients pay thousands of dollars to access in a private consultation.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">I have more questions. How can I reach you? <span class="arrow">▾</span></button>
+      <div class="faq-a">Email us at <a href="mailto:support@therealgutdoctor.com" style="color:var(--blue);">support@therealgutdoctor.com</a> and our team will get back to you as quickly as possible.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+  </div>
+  <div class="footer-copy">COPYRIGHT 2026 THE REAL GUT DOCTOR · ALL RIGHTS RESERVED</div>
+  <div class="footer-legal">
+    The Real Gut Doctor is an educational webinar designed to provide tools, knowledge, and strategies that help patients better understand their gut health. This is NOT a substitute for individual medical advice. Results are not typical or guaranteed.<br><br>
+    Dr. Jeffrey C.G. Mark, M.D. is a licensed physician. The content presented in this webinar is for educational purposes only and does not constitute a doctor-patient relationship. Always consult your physician before making any health decisions.
+  </div>
+</footer>
+
+<div style="height:60px;"></div>
+
+<script>
+// Countdown to next Sunday 12PM EST
+function updateCountdown(){
+  var now=new Date();
+  var target=new Date(now);
+  target.setDate(now.getDate()+(7-now.getDay())%7||7);
+  target.setHours(12,0,0,0);
+  var diff=target-now;
+  if(diff<0)diff+=7*86400000;
+  var d=Math.floor(diff/86400000);
+  var h=Math.floor((diff%86400000)/3600000);
+  var m=Math.floor((diff%3600000)/60000);
+  var s=Math.floor((diff%60000)/1000);
+  document.getElementById('cd-days').textContent=String(d).padStart(2,'0');
+  document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+// FAQ
+function toggleFaq(btn){
+  var item=btn.parentElement;
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+  if(!wasOpen)item.classList.add('open');
+}
+</script>
+</body>
+</html>
